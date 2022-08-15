@@ -4,7 +4,7 @@
 3. [Installation](#installation)
 ### General Info
 ***
-Proyecto enfocado al marketing empresarial donde puedes agrupar los clientes de tu empres en diferentes grupos en funcion de sus compras
+Proyecto enfocado al marketing empresarial donde puedes agrupar los clientes de tu empresa en diferentes grupos en funcion de sus compras
 ## Technologies
 ***
 A list of technologies used within the project:
