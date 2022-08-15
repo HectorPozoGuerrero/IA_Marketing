@@ -1,0 +1,34 @@
+{% extends 'baseIaApp.html' %}
+
+{%load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Project.css' %}"/>
+<body style="color: white">
+    <div style="display: flex; justify-content:center; align-items: center; position:fixed; height: 80%; width:100%" class="generalContainer">
+        <div class="subscribe">
+            <h1 class="subscribe__title">Prova-ho tu mateix</h1>
+            <p class="subscribe__copy">Per enviar les dades es necessari un tractamet previ d'aquestes. Per realitzar-lo segueix les instruccions explicades a l'apartat exemple.</p>
+        
+            <div class="formulari">
+                <p class="form_text" for="file">Introdueix el CSV amb les dades a tractar.</p>
+            <form action="/projectFirstStep" method="POST" enctype="multipart/form-data">
+               
+                {% csrf_token %}
+                <input class="form__email" type="file" name="file" required>
+                <button class="form__button" type="submit" value="Submit">Enviar</button>
+            </form>
+            </div>
+            <div class="notice">
+                <p class="subscribe2__copy">Un cop enviat el document automaticament començarà el proces de clustering, aquest pot tardar uns segons en acabar.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="" async defer></script>
+
+        {% endblock %}
+

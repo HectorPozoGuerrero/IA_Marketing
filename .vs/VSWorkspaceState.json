@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\IAMarketing",
+    "\\IAMarketing\\IAApp",
+    "\\IAMarketing\\IAApp\\templates",
+    "\\IAMarketing\\LoginApp\\static",
+    "\\IAMarketing\\LoginApp\\templates",
+    "\\IAMarketing\\LoginApp\\templates\\registration"
+  ],
+  "SelectedNode": "\\IAMarketing\\IAApp\\templates\\IAExample.html",
+  "PreviewInSolutionExplorer": false
+}

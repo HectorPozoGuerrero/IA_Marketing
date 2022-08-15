@@ -1,0 +1,75 @@
+
+body {
+    width: 100vw;
+    background-color: #1D1D1D;
+    margin: 0;
+    font-family: helvetica;
+ }
+
+#navGeneral {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 100px;
+    background: linear-gradient(360deg,#7ed0ff 0%, #488eff 60%, rgba(0, 0, 0, 0.28) 180%);
+    
+}
+.navLletra {
+    margin-top: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    line-height: normal;
+}
+
+.footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background: #292929;
+    
+}
+
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background: #292929;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: flex;
+    line-height:2.5;
+    color:whitesmoke;
+}
+
+footer p:first-of-type {
+    margin-right: auto;
+}
+
+.footerContainer {
+    
+}
+
+.innerFooter {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: flex;
+    line-height:2.5;
+    color:whitesmoke;
+}
+.logo{
+    margin-top:4px;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+.logout.a{
+    font-size: 20px;
+}

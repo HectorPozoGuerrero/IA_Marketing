@@ -1,0 +1,41 @@
+{% extends 'baseIaApp.html' %}
+
+{%load static%}
+{% block content %}
+
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/aboutus.css' %}" />
+<script src="" async defer></script>
+<div style="position:fixed; justify-content:center;text-align:center; width:100%; height: 100%; margin-top:0;background-color: whitesmoke;">
+    <h3 class="equip" style="color:black">EL NOSTRE EQUIP</h3>
+    <div class="container" style="padding:0; align-content:center; justify-content:center;text-align:center;">
+        <div class="cardTotal card0">
+            <div class="border1">
+                <h2 class="nom" >Marc Sabaté</h2>
+                <p class="descripcio">Si se puede imaginar, se puede programar.</p>
+
+            </div>
+        </div>
+        <div class="cardTotal card1">
+            <div class="border1">
+                <h2 class="nom">Sheila Pena</h2>
+                <p class="descripcio">"Not all those who wander are lost"</p>
+            </div>
+        </div>
+
+        <div class="cardTotal card2">
+            <div class="border1">
+                <h2 class="nom">Héctor Pozo</h2>
+                <p class="descripcio">Sé el cambio que quieres ver en el mundo</p>
+            </div>
+        </div>
+        <div class="cardTotal card3">
+            <div class="border1">
+                <h2 class="nom">Adriana Montagud</h2>
+                <p class="descripcio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

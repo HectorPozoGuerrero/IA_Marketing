@@ -1,0 +1,150 @@
+body {
+    align-items: center;
+    background-color: #1D1D1D;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #form {
+    background-color: #292929;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+  }
+  
+  .title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  
+  .subtitle {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .input-container {
+    height: 60px;
+    position: relative;
+    width: 100%;
+  }
+  
+  #username {
+    margin-top: 10px;
+  }
+  
+  #password {
+    margin-top: 10px;
+  }
+  .errorContra{
+    color:whitesmoke;
+  }
+  
+  #id_username, #id_password {
+    background-color: #444444;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 50px;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+    
+  }
+  
+  .cut {
+    background-color: #292929;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+  }
+  
+  .cut-short {
+    width: 50px;
+  }
+  
+  #username:focus ~ .cut,
+  #username:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  #password:focus ~ .cut,
+  #password:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  .placeholder {
+    color: #ffffff;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  #id_username:focus ~ .placeholder,
+  #id_username:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  #id_password:focus ~ .placeholder,
+  #id_password:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  #id_username:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  #id_password:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  
+  
+  #id_username:focus ~ .placeholder {
+    color: #7ed0ff;
+  }
+  #id_password:focus ~ .placeholder {
+    color: #7ed0ff;
+  }
+  
+  .button_large {
+    background-color: #488eff;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .submit:active {
+    background-color: #06b;
+  }
+  .registrar{
+    text-align: center;
+    justify-content: center;
+    margin-left: 40%;
+    color: whitesmoke;
+  }
+  

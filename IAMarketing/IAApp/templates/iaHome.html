@@ -1,0 +1,61 @@
+{% extends 'baseIaApp.html' %}
+{% block content %}
+{% load static %}
+
+      
+        
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <!-- about -->
+    <div class="about">
+       <a class="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
+          <span class="icon"></span>
+       </a>
+       <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+          <span class="icon"></span>
+       </a>
+       <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+          <span class="icon"></span>
+       </a>
+       <a class="bg_links logo"></a>
+    </div>
+    <!-- end about -->
+       
+       <div class="content">
+          <!-- card -->
+          
+          <div class="card">
+               <a href="{% url 'exampleUrl' %}" style= "text-decoration: none">
+                  <div class="icon">
+                     <i class="material-icons md-36">auto_stories</i>
+                  </div>
+               
+               <p class="title">Projecte</p>
+               <p class="text">El nostre projecte.</p>
+               </a>
+          </div>
+          <!-- end card -->
+          <!-- card -->
+          <div class="card">
+            <a href="{% url 'projectUrl' %}" style= "text-decoration: none">
+                <div class="icon"><i class="material-icons md-36">psychology</i></div>
+                <p class="title">Algoritme</p>
+                <p class="text">Estrategies de marketing.</p>
+             </a>
+          </div>
+          <!-- end card -->
+          <!-- card -->
+          <div class="card">
+            <a href="{% url 'aboutUsUrl' %}" style= "text-decoration: none">
+                <div class="icon"><i class="material-icons md-36">group</i></div>
+                <p class="title">About us</p>
+                <p class="text">Qui som?</p>
+             </a>
+          </div>
+          <!-- end card -->
+    
+       </div>
+    </div>
+        <script src="" async defer></script>
+
+{% endblock %}

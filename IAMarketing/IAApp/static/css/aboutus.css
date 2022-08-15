@@ -1,0 +1,154 @@
+.container{
+  width: 100vw;
+  max-height: 800px;
+  max-width: 1280px;
+  min-height: 300px;
+  min-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+
+}
+.descripcio {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: transparent !important;
+    margin: 20px;
+    opacity: 1;
+    padding-top: 70%;
+}
+
+    .descripcio:hover {
+        background-color: transparent !important;
+        color: white  !important;
+    }
+.equip{
+    color:whitesmoke;
+    padding:40px;
+}
+.border1{
+  height: 369px;
+  width: 260px;
+  background: transparent;
+  border-radius: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+.border1:hover{
+    border: 1px solid white;
+}
+
+.nom{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 20px;
+  opacity: 1;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.cardTotal{
+  height: 379px;
+  width: 270px;
+  background: grey;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 70px 63px -60px #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top:0;
+  padding-top:0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.card0 {
+    background: url('../images/marc.jpg') center center no-repeat;
+    background-size: 300px;
+
+}
+
+  .card0:hover{
+      background: url("../images/marc.jpg") left center no-repeat;
+      background-size: 600px;
+  }
+
+  .card0.h2{
+      opacity: 1s;
+  }
+
+  .card0.fa{
+      opacity: 1s;
+  }
+
+.card1 {
+    background: url("../images/sheila.jpg") center center no-repeat;
+    background-size: 300px;
+}
+
+.card1:hover{
+    background: url("../images/sheila.jpg") left center no-repeat;
+    background-size: 600px;
+}
+
+.card1.h2{
+      opacity: 1;
+}
+
+.card1.fa{
+      opacity: 1;
+    }
+
+.card2 {
+    background: url("../images/hector.jpg") center center no-repeat;
+    background-size: 300px;
+}
+
+    .card2:hover {
+        background: url("../images/hector.jpg") left center no-repeat;
+        background-size: 600px;
+    }
+
+.card2.h2{
+      opacity: 1;
+    }
+
+.card2.fa{
+      opacity: 1;
+    }
+
+.card3 {
+    background: url("../images/adri.jpg") center center no-repeat;
+    background-size: 300px;
+}
+
+.card3:hover {
+    background: url("../images/adri.jpg") left center no-repeat;
+    background-size: 600px;
+    color: blue;
+}
+
+h2{
+    opacity: 1;
+}
+    
+.card3.fa{
+      opacity: 1;
+    }
+    
+.descripcio{ 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    color: transparent!important;
+    margin: 20px; 
+    opacity: 1; 
+    padding-top: 70%; 
+    }         
+        
+.descripcio:hover{ 
+background-color: transparent; 
+color: white; 
+}

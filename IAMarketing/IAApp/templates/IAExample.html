@@ -1,0 +1,184 @@
+{% extends 'baseIaApp.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <script src="{% static 'js/index.js' %}"></script>
+
+</head>
+<body>
+    <div class="overALL">
+        <div class="side">
+            <div class="navMenu" style="overflow: scroll;" >
+                <a id="fnavitem" class="navItem" onclick='modificarPagina(0)'>Pas 1</a>
+                <a class="navItem" onclick='modificarPagina(1)'>Pas 2</a>
+                <a class="navItem" onclick='modificarPagina(2)'>Pas 3</a>
+                <a class="navItem" onclick='modificarPagina(3)'>Pas 4</a>
+                <a class="navItem" onclick='modificarPagina(4)'>Pas 5</a>
+                <a class="navItem" onclick='modificarPagina(5)'>Pas 6</a>
+                <a class="navItem" onclick='modificarPagina(6)'>Pas 7</a>
+                <a class="navItem" onclick='modificarPagina(7)'>Pas 8</a>
+                <a class="navItem" onclick='modificarPagina(8)'>Pas 9</a>
+                <a class="navItem" onclick='modificarPagina(9)'>Pas 10</a>
+               <br><br>
+            </div>
+        </div>
+        <!-- The flexible grid (content) -->
+        <div class="fila" id="index">
+            <!-- Pas 1-->
+            <h1>Neteja de les dades del csv</h1>
+            <div class="main"  style="overflow: scroll;">  
+                <p style="text-align: justify; text-justify: inter-word;">El primer pas és netejart les dades. Per això el primer és fer un anàlisi previ i eliminar totes aquelles columnes que no són necessaries. Aqui podem veure l'estat inicial de la BD</p> 
+                <div style="font-size: 0.5vw;">
+                    {% include 'Graphics/Step1FirstTable.html' %}
+                </div>
+                <br><br>                
+                <p style="text-align: justify; text-justify: inter-word;">Ens trobem davant una taula amb moltes columnes que no donen informació útil per agrupar els clients. Un cop borrades les dades ens quedarien de la següent manera:</p>
+                <br><br>
+                <div>
+                    {% include 'Graphics/Step1SecondTable.html' %}
+                    <br><br>
+                    <p style="text-align: justify; text-justify: inter-word;">Veiem que ens hem desfet dinformació com ORDERNUMBER, STATUS, CUSTOMERNAME o ADRESSLINE. Després d'aquest pas el resultat és un DataSet molt mes manipulable.</p>
+                    <p style="text-align: justify; text-justify: inter-word;">Encara així no hem acabat. Existeixen un seguit de camps que no poden ser tractats correctament degut a que son cadenes de caracters.</p>
+                    <p style="text-align: justify; text-justify: inter-word;">La solució és simple, per cada entrada diferent d'aquell camp s'assigna un número, començant pel 0. Per altra banda, en camps que tenen moltes entrades diferents i que necessitem saber d'alguna manera que indica cada digit, creem el que s'anomena els dummies.</p>
+                    <p style="text-align: justify; text-justify: inter-word;">Encara que a simple vista pot semblar una tasca ràpida i senzilla, és la que ens va portar més feina degut a la gran quantitat de dades inútils que teniem.</p>
+                    <br><br><br><br><br><br><br><br><br>
+                </div>
+                
+                <br><br><br>
+            </div>
+            <br><br><br>
+        </div>
+
+        <div class="fila">
+            <!-- Pas 2-->
+            <h1>Matriu de correlacio</h1>
+            <div class="main"  >
+                <br>
+                <br>
+                <p  style="text-align: justify; text-justify: inter-word;">Acabada la neteja de dades, comencem a treballar en l'algoritme. Hem de comprovar que les dades que queden no tinguin gaire relació entre sí, per això vam treure la matriu de correlació, la qual ens indica de manera gràfica com de relacionades estan aquestes dades entre elles.
+                El color vermell indica relació 1 a 1, aquestes dades són les mateixes.</p>
+                <br>
+                <br>
+                {% include 'Graphics/corrMatrix.html' %}
+            </div>
+        </div>
+        <div class="fila">
+            <!-- Pas 3-->
+            <h1>Escalar les dades</h1>
+            <div class="main">
+                <img src="{% static 'graphics/DataScaledTable.png' %}" alt="">
+                <br>
+                <br>
+                <p  style="text-align: justify; text-justify: inter-word;">Un cop vista la relació de les dades, hem de treballar l'escalat d'aquestes. Amb aquest procés evitem diferències molt grans entre continguts. En aquest procés convertim totes les dades a un rang més assequible sense perdre la relació entre elles.
+                </p>
+            </div>
+        </div>
+
+        <div class="fila">
+            <!--Pas 4 -->
+            <h1>Determinar el nombre de clusters</h1>
+            <div class="main" style="overflow: scroll;">
+
+                <p  style="text-align: justify; text-justify: inter-word;">En aquest punt ja estem segurs que les dades són correctes per treballar amb elles i començem l'algorisme d'agrupació.</p>
+                <p  style="text-align: justify; text-justify: inter-word;">Primer de tot haurem de decidir el número de clusters o grups que volem tenir. Per això utiitzarem l'anomenat mètode del colze.</p>
+                <p  style="text-align: justify; text-justify: inter-word;">El mètode del colze ens demana que primer realitzem clusering de les dades amb diferents números de centres. D'aquesta manera vam agrupar primer en un sol grup fins arribar als 12.</p>
+                <p  style="text-align: justify; text-justify: inter-word;">El colze ens diu que el número de clusters òptim és aquell on la gràfica comença a aplanar-se. Aquesta ocasió no és la més evident, ja que no existeix un colze definit, és per això que hem cregut que cinc el número adequat.</p>
+                <br>
+                <br>
+                <img src="{% static 'graphics/SSErrorGraphic.png' %}" alt="">
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+        <div class="fila">
+            <!-- Pas 5-->
+            <h1>Assignar els clusters corresponents</h1>
+            <div class="main" style="overflow: scroll;">
+                <p  style="text-align: justify; text-justify: inter-word;"> Tenint el nombre de grups, ja podem fer la divisió. Quan apliquem l'algorisme ens retorna una llista que ens indica a quin grup pertany cada registre, la qual hem insertat en la nostra taula en la columna CLUSTER.</p>
+                {% include 'Graphics/clusterTable.html' %}
+                <br><br>
+                
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+        <div class="fila">
+            <!--  Pas 6 -->
+            <h1>Obtenir els centres dels clusters</h1>
+            <div class="main" style="overflow: scroll;">
+
+                <p style="text-align: justify; text-justify: inter-word;">Anem ara a veure els centres d'aquests clusters. Aquests centres no ens donen massa informacio, ja que estan fets sobre les dades escalades com podem veure aquí:</p>
+                <br>
+                <br>
+                {% include 'Graphics/clustersCentersScaled.html' %}
+                <br>
+                <br>
+                <p style="text-align: justify; text-justify: inter-word;" >Però si utilitzem l'algoritme d'escalat a l'inversa, podem treure el valor real de cada centre, el que si ens dona més informació:</p>
+                <br>
+                <br>
+                {% include 'Graphics/clustersCentersNormal.html' %}
+                <br>
+                <p style="text-align: justify; text-justify: inter-word;">Amb aquesta gràfica podem veure clarament les diferències entre clusters i en què es caracteritza cadascun d'ells. Veiem que el grup 3 és qui mes productes demana en una comanda, però que és el 4 qui més diners gasta entre moltes altres coses.</p>
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+        <div class="fila">
+            <!--  Pas 7 -->
+            <h1>Estudi de les agrupacions obtingudes</h1>
+            <div class="main" style="overflow: scroll;">
+                <p style="text-align: justify; text-justify: inter-word;">Tenim els grups creats i les dades dividides dins aquests grups, però encara no hem pogut veure res. Aqui ensenyem una taula de gràfics dividits per culsters i columnes. Per cada columna existeixen 5 histogrames, un per cada cluster</p>
+                <div class="analisiResultats">
+                    <img src="{% static 'graphics/ClustersColumn0.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn1.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn2.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn3.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn4.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn5.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn6.png' %}" alt="">
+                    <img src="{% static 'graphics/ClustersColumn7.png' %}" alt="">
+                    <br><br><br><br><br><br><br><br><br><br><br>
+                    <p style="text-align: justify; text-justify: inter-word;">Com podem veure crear un gràfic de 13 dimensions és quelcom inviable, és per això que haurem de fer una descomposició de les dades per poder representar-les en una gràfica.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="fila">
+            <!--  Pas 8 -->
+            <h1>Grafica 3D de les agrupacions obtingudes</h1>
+            <div class="main" style="overflow: scroll;">
+                <div>
+                    <br>
+                    <br>
+                    <div style="margin-left:25%;">
+                        {% include 'Graphics/3dGraphicClusters.html' %}
+                    </div>
+                    <br>
+                    <br>
+                    <p style="text-align: justify; text-justify: inter-word;">Primer ho farem en tres dimensions. Aquesta descomposició utilitza les dades més rellevants per continuar mantenint les característiques de cada registre de la manera més eficaç possible.
+                    Tenint tots els registres reduïts a tres columnes, podem graficar-los.</p>
+                    <br><br><br><br><br><br><br>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="fila">
+            <!--  Pas 9 -->
+            <h1>Grafica 2d de les agrupacions obtingudes</h1>
+            <div class="main" >
+                <p style="margin-bottom: 0;">Farem el mateix ara en dues dimensions</p>
+               <img style="margin-top: 0;" src="{% static 'graphics/2dGraphicClusters.png' %}" alt="">
+            </div>
+        </div>
+        <div class="fila">
+            <!--  Pas 10 -->
+            <h1>Analisi dels resultats</h1>
+            <div class="main" style="overflow: scroll;">
+                <p>Per últim podem veure de manera més fàcil les característiques de cada cluster:</p>
+                <img src="{% static 'Graphics/ClustersDiff.png'%}" alt="">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <br><br><br><br><br><br><br>
+        </div>
+    </div>
+</body>
+    {% endblock %}
